@@ -41,7 +41,6 @@ import org.bitcoinj.core.Block;
 import org.bitcoinj.core.BlockChain;
 import org.bitcoinj.core.CheckpointManager;
 import org.bitcoinj.core.Coin;
-import org.bitcoinj.core.FilteredBlock;
 import org.bitcoinj.core.Peer;
 import org.bitcoinj.core.PeerEventListener;
 import org.bitcoinj.core.PeerGroup;
@@ -57,6 +56,9 @@ import org.bitcoinj.net.discovery.PeerDiscoveryException;
 import org.bitcoinj.store.BlockStore;
 import org.bitcoinj.store.BlockStoreException;
 import org.bitcoinj.store.SPVBlockStore;
+import org.bitcoinj.store.FullPrunedBlockStore;
+import org.blackcoinj.store.H2MVStoreFullPrunedBlockstore;
+import org.bitcoinj.core.FullPrunedBlockChain;
 import org.bitcoinj.utils.MonetaryFormat;
 import org.bitcoinj.utils.Threading;
 import org.slf4j.Logger;
@@ -75,6 +77,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.net.ConnectivityManager;
 import android.net.Uri;
+import android.os.Environment;
 import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
@@ -102,9 +105,9 @@ public class BlockchainServiceImpl extends android.app.Service implements Blockc
 	private WalletApplication application;
 	private Configuration config;
 
-	private BlockStore blockStore;
+	private FullPrunedBlockStore blockStore;
 	private File blockChainFile;
-	private BlockChain blockChain;
+	private FullPrunedBlockChain blockChain;
 	@Nullable
 	private PeerGroup peerGroup;
 
@@ -298,7 +301,7 @@ public class BlockchainServiceImpl extends android.app.Service implements Blockc
 		private final AtomicLong lastMessageTime = new AtomicLong(0);
 
 		@Override
-		public void onBlocksDownloaded(final Peer peer, final Block block, final FilteredBlock filteredBlock, final int blocksLeft)
+		public void onBlocksDownloaded(final Peer peer, final Block block, final int blocksLeft)
 		{
 			delayHandler.removeCallbacksAndMessages(null);
 
@@ -584,28 +587,33 @@ public class BlockchainServiceImpl extends android.app.Service implements Blockc
 
 		broadcastPeerState(0);
 
-		blockChainFile = new File(getDir("blockstore", Context.MODE_PRIVATE), Constants.Files.BLOCKCHAIN_FILENAME);
-		final boolean blockChainFileExists = blockChainFile.exists();
-
-		if (!blockChainFileExists)
-		{
-			log.info("blockchain does not exist, resetting wallet");
-			wallet.reset();
-		}
-
 		try
 		{
-			blockStore = new SPVBlockStore(Constants.NETWORK_PARAMETERS, blockChainFile);
+			blockChainFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), Constants.Files.BLOCKCHAIN_FILENAME);
+			final boolean blockChainFileExists = blockChainFile.exists();
+			
+			if(!blockChainFileExists) {
+                String msg = "Missing chain " + blockChainFile.getAbsolutePath();
+                log.error(msg);
+                throw new Error(msg);
+            }
+				
+			blockStore = new H2MVStoreFullPrunedBlockstore(Constants.NETWORK_PARAMETERS, blockChainFile.getAbsolutePath());
 			blockStore.getChainHead(); // detect corruptions as early as possible
 
 			final long earliestKeyCreationTime = wallet.getEarliestKeyCreationTime();
-
+			
+			if (earliestKeyCreationTime > 0)
+                wallet.reset();
+			
+			/*
 			if (!blockChainFileExists && earliestKeyCreationTime > 0)
 			{
 				try
 				{
 					final long start = System.currentTimeMillis();
 					final InputStream checkpointsInputStream = getAssets().open(Constants.Files.CHECKPOINTS_FILENAME);
+					final InputStream checkpointsTxInputStream = getAssets().open(Constants.Files.CHECKPOINTS_FILENAME);
 					CheckpointManager.checkpoint(Constants.NETWORK_PARAMETERS, checkpointsInputStream, blockStore, earliestKeyCreationTime);
 					log.info("checkpoints loaded from '{}', took {}ms", Constants.Files.CHECKPOINTS_FILENAME, System.currentTimeMillis() - start);
 				}
@@ -614,11 +622,10 @@ public class BlockchainServiceImpl extends android.app.Service implements Blockc
 					log.error("problem reading checkpoints, continuing without", x);
 				}
 			}
+			*/
 		}
 		catch (final BlockStoreException x)
 		{
-			blockChainFile.delete();
-
 			final String msg = "blockstore cannot be created";
 			log.error(msg, x);
 			throw new Error(msg, x);
@@ -626,7 +633,7 @@ public class BlockchainServiceImpl extends android.app.Service implements Blockc
 
 		try
 		{
-			blockChain = new BlockChain(Constants.NETWORK_PARAMETERS, wallet, blockStore);
+			blockChain = new FullPrunedBlockChain(Constants.NETWORK_PARAMETERS, wallet, blockStore);
 		}
 		catch (final BlockStoreException x)
 		{
