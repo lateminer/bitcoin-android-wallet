@@ -1,12 +1,12 @@
-Bitcoiny vždy so sebou vo svojom vrecku. Jednoduché a rýchle platby pomocou QR kódov. Pre obchodníkov ponúka spoľahlivé a okamžité prijímanie platieb. Bitcoin Wallet je prvá mobilná Bitcoin aplikácia a preukázateľne aj najbezpečnejšia.
+Bitcoiny vždy so sebou vo svojom vrecku. Jednoduché a rýchle platby pomocou QR kódov. Pre obchodníkov ponúka spoľahlivé a okamžité prijímanie platieb. Roxocoin Wallet je prvá mobilná Roxocoin aplikácia a preukázateľne aj najbezpečnejšia.
 
 FUNKCIE:
 
 • Nie je potrebná žiadna registrácia ani žiadny účet.
-• Zobrazenie zostatku Bitcoinov v BTC alebo mBTC.
+• Zobrazenie zostatku Bitcoinov v RXC alebo mRXC.
 • Prepočet hodnoty Bitcoinov do viacerých cudzích mien.
-• Posielanie a prijímanie Bitcoinov pomocou NFC, QR kódov alebo Bitcoin adries.
-• Adresár pre často používané Bitcoin adresy.
+• Posielanie a prijímanie Bitcoinov pomocou NFC, QR kódov alebo Roxocoin adries.
+• Adresár pre často používané Roxocoin adresy.
 • V offline režime je platba možná aj cez Bluetooth.
 • Notifikácie v stavovej lište pri prijatí Bitcoinov.
 • Widget s celkovým zostatkom.
@@ -14,8 +14,8 @@ FUNKCIE:
 Viac informácií o Bitcoine
 https://bitcoin.org
 
-Ak chcete prispieť do projektu Bitcoin Wallet nájdete ho na adrese
-https://github.com/bitcoin-wallet/bitcoin-wallet
+Ak chcete prispieť do projektu Roxocoin Wallet nájdete ho na adrese
+https://github.com/lateminer/bitcoin-android-wallet
 
 Licencia: GPLv3
 Použitie len na vlastné riziko!

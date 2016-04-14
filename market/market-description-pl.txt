@@ -1,21 +1,21 @@
-Miej swoje Bitcoiny zawsze w swojej kieszeni! Zapłacisz skanując kod QR. Jako sprzedawca odbierzesz płatności niezawodnie i natychmiastowo. Bitcoin Wallet jest pierwszą aplikacją Bitcoinową na telefony i niezaprzeczalnie najbezpieczniejszą.
+Miej swoje Bitcoiny zawsze w swojej kieszeni! Zapłacisz skanując kod QR. Jako sprzedawca odbierzesz płatności niezawodnie i natychmiastowo. Roxocoin Wallet jest pierwszą aplikacją Bitcoinową na telefony i niezaprzeczalnie najbezpieczniejszą.
 
 WŁAŚCIWOŚCI:
 
 • Brak konieczności rejestracji, serwisu online lub chmury! Ten portfel używa zdecentralizowanej sieci peer-to-peer.
-• Wyświetl ilość kwotę w BTC i mBTC.
+• Wyświetl ilość kwotę w RXC i mRXC.
 • Zamiana z i na waluty narodowe
-• Wysyłąnie i odbieranie Bitcoin za pomocą NFC, kodów QR czy adresów Bitcoin URL.
-• Książka adresowa dla regularnie używanych adresów Bitcoin.
+• Wysyłąnie i odbieranie Roxocoin za pomocą NFC, kodów QR czy adresów Roxocoin URL.
+• Książka adresowa dla regularnie używanych adresów Roxocoin.
 • Gdy jesteś offline, wciąż możesz zapłacić przy użyciu Bluetooth.
 • System powiadomień dla przychodzących transakcji.
 • Widget aplikacji dla stanu konta.
 
-Dowiedz się więcej o Bitcoin
+Dowiedz się więcej o Roxocoin
 https://bitcoin.org
 
-Jeśli chcesz przyczynić się do rozwoju Bitcoin Wallet to projekt znajduje się pod adresem
-https://github.com/bitcoin-wallet/bitcoin-wallet
+Jeśli chcesz przyczynić się do rozwoju Roxocoin Wallet to projekt znajduje się pod adresem
+https://github.com/lateminer/bitcoin-android-wallet
 
 Licencja: GPLv3
 Używasz na własne ryzyko!

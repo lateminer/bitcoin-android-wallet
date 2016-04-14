@@ -1,14 +1,19 @@
 apply plugin: 'com.android.application'
 
+def localMavenRepo = 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
+repositories {
+    maven { url localMavenRepo }
+}
+
 dependencies {
     compile(project(':integration-android')) {
         exclude(group: 'com.google.android', module: 'android')
     }
-    compile 'org.bitcoinj:bitcoinj-core:0.12.3'
+    compile 'org.bitcoinj:roxocoinj-core:0.13.6'
 }
 
 android {
-    compileSdkVersion 'android-15'
+    compileSdkVersion 'android-23'
     buildToolsVersion '23.0.2'
 
     lintOptions { abortOnError false }

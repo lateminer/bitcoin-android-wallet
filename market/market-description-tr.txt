@@ -1,26 +1,26 @@
-<b>Bitcoin'leriniz daima cebinizde sizinle olsun!</b> Herhangi bir QR kodunu okuyarak çabuk ödeme yapabilirsiniz. Bir tüccar olarak ödemeleri güvenilir ve anında alabilirsiniz. Bitcoin Wallet ilk mobil Bitcoin uygulamasıdır ve muhtemelen en güvenli Bitcoin uygulamasıdır!
+<b>Roxocoin'leriniz daima cebinizde sizinle olsun!</b> Herhangi bir QR kodunu okuyarak çabuk ödeme yapabilirsiniz. Bir tüccar olarak ödemeleri güvenilir ve anında alabilirsiniz. Roxocoin Wallet ilk mobil Roxocoin uygulamasıdır ve muhtemelen en güvenli Roxocoin uygulamasıdır!
 
 
 <b>ÖZELLİKLER</b>
 
 • Hiçbir oturuma, web ya da bulut hizmetine gerek yoktur. Bu cüzdan merkezsiz ve eşten eşedir.
-• Bitcoin meblağlarını BTC, mBTC ve µBTC olarak göster.
+• Roxocoin meblağlarını RXC, mRXC ve µRXC olarak göster.
 • Ulusal para birimlerine ve bu para birimlerinden dönüştürme.
-• QR kodları, Bitcoin bağlantıları ve yakın alan iletişimi ile Bitcoin alımı ve gönderilmesi.
-• Sık kullanılan Bitcoin adresleri için adres defteri içerir.
+• QR kodları, Roxocoin bağlantıları ve yakın alan iletişimi ile Roxocoin alımı ve gönderilmesi.
+• Sık kullanılan Roxocoin adresleri için adres defteri içerir.
 • Çevrimdışı olduğunuzda Bluetooth vasıtasıyla ödemeler.
 • Alınan bitcoin'ler için sistem bildirimleri.
 • Kağıt cüzdanların taranması (mesela soğuk depolama için kullanılanlar).
-• Bitcoin bakiyesini görüntüleyen widget.
+• Roxocoin bakiyesini görüntüleyen widget.
 
 
 <b>İŞTİRAK EDİN</b>
 
-Bitcoin Wallet <b>açık kaynak</b> ve <b>özgür yazılımdır</b>. Lisans: GPLv3
+Roxocoin Wallet <b>açık kaynak</b> ve <b>özgür yazılımdır</b>. Lisans: GPLv3
 https://www.gnu.org/licenses/gpl-3.0.en.html
 
 Kaynak kodumuz GitHub'da mevcuttur:
-https://github.com/bitcoin-wallet/bitcoin-wallet
+https://github.com/lateminer/bitcoin-android-wallet
 
 Tüm tercümeler Transifex üzerinde yönetilir:
 https://www.transifex.com/bitcoin-wallet/bitcoin-wallet/
@@ -28,7 +28,7 @@ https://www.transifex.com/bitcoin-wallet/bitcoin-wallet/
 
 <b>REFERANSLAR</b>
 
-• Birçok mobil cüzdan kodları için Bitcoin Wallet'i temel alırlar. Mesela blockchain.info, Hive ve KnC.
+• Birçok mobil cüzdan kodları için Roxocoin Wallet'i temel alırlar. Mesela blockchain.info, Hive ve KnC.
 • https://bitcoin.org tarafından tavsiye edilen mobil cüzdan.
 • BitPay tarafından tavsiye edilir.
 
